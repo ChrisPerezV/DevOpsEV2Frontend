@@ -26,11 +26,11 @@ jobs:
         with:
           context: ./front_despacho
           push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/ejkevin-frontend:latest
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/DevOpsEV2Frontend:latest
           build-args: |
             VITE_API_DESPACHO=${{ secrets.VITE_API_DESPACHO }}
             VITE_API_VENTAS=${{ secrets.VITE_API_VENTAS }}
-            
+
       - name: Deploy en EC2 Frontend
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -38,7 +38,7 @@ jobs:
           username: ${{ secrets.EC2_USER }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
-            cd ~/EJKEVIN
+            cd ~/DevOpsEV2Frontend
             git pull origin deploy
             cat > .env <<EOF
             IP_VENTAS=${{ secrets.IP_PRIVADA_EC2_VENTAS }}
