@@ -1,6 +1,6 @@
 services:
   frontend:
-    image: chriperezv/DevOpsEV2Frontend:latest
+    image: chriperezv/devopvsev2frontend:latest
     container_name: frontendapp
     ports:
       - "80:8080"
