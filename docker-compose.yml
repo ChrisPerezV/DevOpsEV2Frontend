@@ -1,0 +1,15 @@
+services:
+  frontend:
+    image: tu_usuario_dockerhub/ejkevin-frontend:latest
+    container_name: frontendapp
+    ports:
+      - "80:8080"
+    environment:
+      - IP_VENTAS=${IP_VENTAS}
+      - IP_DESPACHOS=${IP_DESPACHOS}
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
